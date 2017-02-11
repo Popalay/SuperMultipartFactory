@@ -11,8 +11,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
@@ -23,6 +21,7 @@ android {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     provided 'com.android.support:support-annotations:25.1.1'
     provided 'com.squareup.okhttp3:okhttp:3.6.0'
     provided 'com.google.code.gson:gson:2.8.0'
@@ -30,9 +29,9 @@ dependencies {
 
 publish {
     groupId = 'com.github.popalay'
-    artifactId = 'supermultipartfactory'
+    artifactId = 'super-multipart-factory'
     publishVersion = '1.0.0'
-    desc = 'A simple way to show the user interface tutorials'
+    desc = 'A simple way to convert any model to multipart'
     licences = ['Apache-2.0']
     uploadName = 'SuperMultipartFactory'
     website = 'https://github.com/Popalay/SuperMultipartFactory'
