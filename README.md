@@ -4,6 +4,9 @@
 # Super Multipart Factory
 
 A simple way to show the user interface tutorials
+* File support
+* List support
+* Nested model support
 
 ## Getting Started
 
