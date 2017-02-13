@@ -1,6 +1,6 @@
 [![Download](https://api.bintray.com/packages/popalay/maven/SuperMultipartFactory/images/download.svg) ](https://bintray.com/popalay/maven/SuperMultipartFactory/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-SuperMultipartFactory-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5266)
-[![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](https://github.com/Popalay/SuperMultipartFactory/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](https://github.com/Popalay/SuperMultipartFactory/blob/master/LICENSE)
 
 # Super Multipart Factory
 
