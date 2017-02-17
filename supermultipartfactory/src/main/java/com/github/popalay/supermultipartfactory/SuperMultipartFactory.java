@@ -59,8 +59,12 @@ public final class SuperMultipartFactory {
             return parts;
         }
 
-        final String prefix = parentPrefix == null ? partName : parentPrefix + partName;
-        final String postfix = parentPostfix == null ? PART_POSTFIX : parentPostfix + PART_POSTFIX;
+        String prefix = "";
+        String postfix = "";
+        if (partName.length() > 0) {
+            prefix = parentPrefix == null ? partName : parentPrefix + partName;
+            postfix = parentPostfix == null ? PART_POSTFIX : parentPostfix + PART_POSTFIX;
+        }
         final Field[] fields = object.getClass().getDeclaredFields();
 
         SerializedName serialName;
