@@ -4,7 +4,7 @@
 
 # Super Multipart Factory
 
-A simple way to show the user interface tutorials
+A simple way to convert any model to multipart
 * File support
 * List support
 * Nested model support
