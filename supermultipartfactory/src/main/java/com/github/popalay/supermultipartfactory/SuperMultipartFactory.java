@@ -71,8 +71,8 @@ public final class SuperMultipartFactory {
         Object value;
         for (Field field : fields) {
             value = getFieldValue(object, field);
+            serialName = field.getAnnotation(SerializedName.class);
             if (value != null) {
-                serialName = field.getAnnotation(SerializedName.class);
                 if (serialName != null) {
                     if (value.getClass().isAnnotationPresent(Partable.class)) {
                         parts.addAll(generateParts(serialName.value(), value, prefix, postfix, false));
@@ -85,6 +85,9 @@ public final class SuperMultipartFactory {
                                 value.toString()));
                     }
                 }
+            } else {
+                parts.add(MultipartBody.Part.createFormData(prefix + serialName.value() + postfix, null,
+                        RequestBody.create(null, new byte[] {})));
             }
         }
         return parts;
