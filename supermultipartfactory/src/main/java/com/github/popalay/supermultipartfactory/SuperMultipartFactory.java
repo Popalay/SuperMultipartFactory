@@ -86,8 +86,10 @@ public final class SuperMultipartFactory {
                     }
                 }
             } else {
-                parts.add(MultipartBody.Part.createFormData(prefix + serialName.value() + postfix, null,
-                        RequestBody.create(null, new byte[] {})));
+                if (serialName != null) {
+                    parts.add(MultipartBody.Part.createFormData(prefix + serialName.value() + postfix, null,
+                            RequestBody.create(null, new byte[] {})));
+                }
             }
         }
         return parts;
