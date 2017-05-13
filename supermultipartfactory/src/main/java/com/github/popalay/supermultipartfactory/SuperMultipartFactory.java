@@ -55,7 +55,7 @@ public final class SuperMultipartFactory {
         final List<MultipartBody.Part> parts = new ArrayList<>();
 
         if (object instanceof File) {
-            putFile(partName, parts, (File) object);
+            parts.add(putFile(partName, (File) object));
             return parts;
         }
 
@@ -74,12 +74,14 @@ public final class SuperMultipartFactory {
             serialName = field.getAnnotation(SerializedName.class);
             if (value != null) {
                 if (serialName != null) {
-                    if (value.getClass().isAnnotationPresent(Partable.class)) {
+                    if (field.isAnnotationPresent(Partable.class)) {
                         parts.addAll(generateParts(serialName.value(), value, prefix, postfix, false));
                     } else if (value instanceof List) {
                         for (Object o : ((List) value)) {
                             parts.addAll(generateParts(serialName.value(), o, prefix, postfix, true));
                         }
+                    } else if (value instanceof File) {
+                        parts.add(putFile(partName, (File) value));
                     } else {
                         parts.add(MultipartBody.Part.createFormData(prefix + serialName.value() + postfix,
                                 value.toString()));
@@ -114,8 +116,8 @@ public final class SuperMultipartFactory {
         return type;
     }
 
-    private void putFile(String name, @NonNull List<MultipartBody.Part> parts, File file) {
-        parts.add(MultipartBody.Part.createFormData(name, file.getName(),
-                RequestBody.create(MediaType.parse(getMimeType(file)), file)));
+    private MultipartBody.Part putFile(String name, File file) {
+        return MultipartBody.Part.createFormData(name, file.getName(),
+                RequestBody.create(MediaType.parse(getMimeType(file)), file));
     }
 }
