@@ -18,6 +18,7 @@ public class Model {
     @SerializedName("avatar")
     private String avatar;
 
+    @Partable
     @SerializedName("order")
     private NestedModel order;
 

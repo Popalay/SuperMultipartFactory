@@ -1,9 +1,7 @@
 package com.github.popalay.sample;
 
-import com.github.popalay.supermultipartfactory.Partable;
 import com.google.gson.annotations.SerializedName;
 
-@Partable
 public class NestedModel {
 
     @SerializedName("amount")

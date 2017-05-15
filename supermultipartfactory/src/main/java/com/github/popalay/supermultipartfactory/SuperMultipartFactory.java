@@ -81,7 +81,7 @@ public final class SuperMultipartFactory {
                             parts.addAll(generateParts(serialName.value(), o, prefix, postfix, true));
                         }
                     } else if (value instanceof File) {
-                        parts.add(putFile(partName, (File) value));
+                        parts.add(putFile(prefix + serialName.value() + postfix, (File) value));
                     } else {
                         parts.add(MultipartBody.Part.createFormData(prefix + serialName.value() + postfix,
                                 value.toString()));
